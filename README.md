@@ -30,14 +30,16 @@ The unit of indentation is four spaces. Use of tabs should be avoided because (a
 
 Avoid lines longer than 80 characters. When a statement will not fit on a single line, it may be necessary to break it. Place the break after an operator, ideally after a comma. A break after an operator decreases the likelihood that a copy-paste error will be masked by semicolon insertion. The next line should be indented 8 spaces.
 
-    Bad:
+Bad Examples:
+
     myLongLineOfCode +
     anotherLineOfCode;
 
     mapper(alpha, beta, gamma,
     delta, epsilon);
 
-    Good:
+Good Examples:
+
     myLongLineOfCode +
             anotherLineOfCode;
     
@@ -154,21 +156,22 @@ Most variables and functions should start with a lower case letter.
 
 Constructor functions that must be used with the new prefix should start with a capital letter. JavaScript issues neither a compile-time warning nor a run-time warning if a required new is omitted. Bad things can happen if new is not used, so the capitalization convention is the only defense we have.
 
-    Examples:
-        functionNamesLikeThis, variableNamesLikeThis, ClassNamesLikeThis, 
-        EnumNamesLikeThis, CONSTANT_VALUES_LIKE_THIS
+Examples:
+
+    functionNamesLikeThis, variableNamesLikeThis, ClassNamesLikeThis, 
+    EnumNamesLikeThis, CONSTANT_VALUES_LIKE_THIS
 
 If the name contains an acronym or abbreviation, the first letter only will be capitalized. 
 
-    Bad Examples:
+Bad Examples:
     
-        elementID
-        userHTML
+    elementID
+    userHTML
     
-    Good Examples:
+Good Examples:
     
-        elementId
-        userHtml
+    elementId
+    userHtml
 
 >Alexd: review:
 >Global variables should be in all caps. (JavaScript does not have macros or constants, so there isn't much point in using all caps to signify features that JavaScript doesn't have.)
@@ -359,7 +362,7 @@ Blank spaces should be used in the following circumstances:
 
 - A keyword followed by ( (left parenthesis) should be separated by a space.
 
-    while (true) {
+		while (true) {
 - A blank space should not be used between a function value and its ( (left parenthesis). This helps to distinguish between keywords and function invocations. Good example: `add(1, 2);`
 - All binary operators except . (period) and ( (left parenthesis) and [ (left bracket) should be separated from their operands by a space. Good examples: `a.b`, `a[b]`, `a + b`.
 - No space should separate a unary operator and its operand except when the operator is a word such as typeof. Good examples: `i++`, `!condition`, `typeof someVar`.
@@ -478,6 +481,8 @@ Object declarations can be made on a single line if they are short (remember the
             // Do stuff
         });
 
+## Best Practices and Patterns
+> Alexd: Todo (IIFE, etc)
 
 ## jQuery-Specific
 ### Variables
