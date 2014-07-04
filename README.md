@@ -1,6 +1,6 @@
 # PayScale JavaScript Style Guide
 
-This is a set of coding conventions and rules for use in JavaScript programming. It is heavily based on [Code Conventions for the JavaScript Programming Language](http://javascript.crockford.com/code.html), by Douglas Crockford.
+This is a set of coding conventions and rules for use in JavaScript programming. It is heavily based on [Code Conventions for the JavaScript Programming Language](http://javascript.crockford.com/code.html), by Douglas Crockford, along with the [Airbnb](https://github.com/airbnb/javascript) and [jQuery](http://contribute.jquery.org/style-guide/js/) JavaScript style guides.
 
 The long-term value of software to an organization is in direct proportion to the quality of the codebase. Over its lifetime, a program will be handled by many pairs of hands and eyes. If a program is able to clearly communicate its structure and characteristics, it is less likely that it will break when modified in the never-too-distant future.
 
@@ -9,6 +9,7 @@ Code conventions can help in reducing the brittleness of programs.
 All of our JavaScript code is sent directly to the public. It should always be of publication quality.
 
 Neatness counts.
+
 
 ## JavaScript Files
 
@@ -79,6 +80,7 @@ if (firstCondition() && secondCondition() &&
 }
 ```
 
+
 ## Comments
 
 Be generous with comments. It is useful to leave information that will be read at a later time by people (possibly yourself) who will need to understand what you have done. The comments should be well-written and clear, just like the code they are annotating. An occasional nugget of humor might be appreciated. Frustrations and resentments will not.
@@ -126,6 +128,7 @@ Acceptable:
 // TODO: 2014-07-03 estebans: Another description
 ```
 
+
 ## Quotes
 Use single quotes `''` for strings.
 
@@ -138,6 +141,7 @@ Strings that require inner quoting must use single outside and double inside.
 ```JavaScript    
 var html = '<div id="myId"></div>';
 ```
+
 
 ## Variable Declarations
 
@@ -182,7 +186,7 @@ If the name contains an acronym or abbreviation, the first letter only will be c
 
 Bad:
 
- ```JavaScript   
+```JavaScript   
 elementID
 userHTML
 ```    
@@ -202,6 +206,7 @@ userHtml
 ## Functions
 
 > Alexd: To do
+
 
 ## Properties
 Use dot notation when accessing properties.
@@ -233,6 +238,7 @@ function getProp(prop) {
 
 var isJedi = getProp('jedi');
 ```
+
 
 ## Statements
 
@@ -293,6 +299,7 @@ if (condition) {
 }
 ```
 
+
 ### `for` Statement
 
 A for class of statements should have the following form:
@@ -321,6 +328,7 @@ for (variable in object) {
 }
 ```
 
+
 ### `while` Statement
 
 A `while` statement should have the following form:
@@ -330,6 +338,7 @@ while (condition) {
     statements
 }
 ```
+
 
 ### `do` Statement
 
@@ -342,6 +351,7 @@ do {
 ```
 
 Unlike the other compound statements, the `do` statement always ends with a `;` (semicolon).
+
 
 ### `switch` Statement
 
@@ -357,6 +367,7 @@ switch (expression) {
 ```
 
 Each group of statements (except the default) should end with `break`, `return`, or `throw`. Do not fall through.
+
 
 ### `try` Statement
 
@@ -377,6 +388,7 @@ try {
     statements
 }
 ```
+
 
 ### `continue` Statement
 
@@ -422,6 +434,7 @@ Blank spaces should be used in the following circumstances:
 - No leading commas.
  
     Bad:
+
     ```JavaScript
     if(condition) doSomething();
     while(!condition) iterating++;
@@ -433,6 +446,7 @@ Blank spaces should be used in the following circumstances:
     ```
 
     Good:
+
     ```JavaScript 
     if (condition) {
         doSomething();
@@ -461,11 +475,13 @@ Blank spaces should be used in the following circumstances:
 - Use the literal syntax for object creation.
 
     Bad:
+
     ```JavaScript
     var item = new Object();
     ```
 
     Good:
+
     ```JavaScript
     var item = {};
     ```
@@ -476,19 +492,19 @@ Object declarations can be made on a single line if they are short (remember the
 
     ```JavaScript
     var map = { ready: 9,
-            when: 4, "you are": 15 };
+            when: 4, 'you are': 15 };
     ```
  
 - Good:
     
     ```JavaScript
-    var map = { ready: 9, when: 4, "you are": 15 };
+    var map = { ready: 9, when: 4, 'you are': 15 };
      
     // Good as well
     var map = {
         ready: 9,
         when: 4,
-        "you are": 15
+        'you are': 15
     };
     ```
 
@@ -526,8 +542,8 @@ Object declarations can be made on a single line if they are short (remember the
 
     // Function with a callback, object, or array as the sole argument:
     foo({
-        a: "alpha",
-        b: "beta"
+        a: 'alpha',
+        b: 'beta'
     });
      
     // Function with a callback, object, or array as the first argument:
@@ -544,6 +560,7 @@ Object declarations can be made on a single line if they are short (remember the
 ## Best Practices and Patterns
 > Alexd: Todo (IIFE, etc). Enum -- var Colors = { Red: 0, Green: 1, Blue: 2 };
 
+
 ## jQuery-Specific
 ### Variables
 Prefix jQuery object variables with a `$`. If the jQuery call returns anything else (such as a string or DOM node) this is not needed. 
@@ -556,10 +573,12 @@ var $username = $('.username').text();  // Returns a string like "Esteban"
 ```
 
 Good:
+
 ```JavaScript
 var $sidebar = $('.sidebar');
 var username = $('.username').text();
 ```
+
 
 ### Chained Method Calls
 When a chain of method calls is too long to fit on one line, there must be one call per line, with the first call on a separate line from the object the methods are called on. If the method changes the context, an extra level of indentation must be used.
@@ -572,6 +591,7 @@ elements
     .end()
     .appendTo('body');
 ```
+
 
 ### Cache jQuery Lookups
 
@@ -602,7 +622,7 @@ Perhaps Google sums it up best:
 
 >The point of having style guidelines is to have a common vocabulary of coding so people can concentrate on what you're saying rather than on how you're saying it. We present global style rules here so people know the vocabulary, but local style is also important. If code you add to a file looks drastically different from the existing code around it, it throws readers out of their rhythm when they go to read it. Avoid this.
 
-## Additional References
+## References
  - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
  - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
  - [jQuery JavaScript Style Guide](http://contribute.jquery.org/style-guide/js/)
