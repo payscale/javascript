@@ -12,13 +12,11 @@ Neatness counts.
 
 ## JavaScript Files
 
-JavaScript programs should be stored in and delivered as .js files.
+JavaScript programs should be stored in and delivered as .js files. Filenames should be all lowercase `likethisfilename.js`.
 
 JavaScript code should not be embedded in HTML files unless the code is specific to a single session. Code in HTML adds significantly to pageweight with no opportunity for mitigation by caching and compression.
 
 `<script src=filename.js>` tags should be placed as late in the body as possible. This reduces the effects of delays imposed by script loading on other page components. There is no need to use the language or type attributes. It is the server, not the script tag, that determines the MIME type.
-
-Filenames should be all lowercase `likethisfilename.js`.
 
 
 ## Indentation
@@ -30,49 +28,56 @@ The unit of indentation is four spaces. Use of tabs should be avoided because (a
 
 Avoid lines longer than 80 characters. When a statement will not fit on a single line, it may be necessary to break it. Place the break after an operator, ideally after a comma. A break after an operator decreases the likelihood that a copy-paste error will be masked by semicolon insertion. The next line should be indented 8 spaces.
 
-Bad Examples:
+Bad:
+```JavaScript
+myLongLineOfCode +
+anotherLineOfCode;
 
-    myLongLineOfCode +
-    anotherLineOfCode;
+mapper(alpha, beta, gamma,
+delta, epsilon);
+```
 
-    mapper(alpha, beta, gamma,
-    delta, epsilon);
+Good:
+```JavaScript
+myLongLineOfCode +
+        anotherLineOfCode;
 
-Good Examples:
-
-    myLongLineOfCode +
-            anotherLineOfCode;
-    
-    mapper(alpha, beta, gamma,
-            delta, epsilon);        
-
+mapper(alpha, beta, gamma,
+        delta, epsilon);        
+```
 
 ### Multi-line Statements
 
 When a statement is too long to fit on one line, line breaks must occur after an operator.
 
-Bad Example:
+Bad:
+```JavaScript
+var html = '<p>The sum of ' + a + ' and ' + b + ' plus ' + c
+    + ' is ' + (a + b + c);
+``` 
 
-    var html = '<p>The sum of ' + a + ' and ' + b + ' plus ' + c
-        + ' is ' + (a + b + c);
- 
-Good Example:
-
-    var html = '<p>The sum of ' + a + ' and ' + b + ' plus ' + c +
-        ' is ' + (a + b + c);
+Good:
+```JavaScript
+var html = '<p>The sum of ' + a + ' and ' + b + ' plus ' + c +
+    ' is ' + (a + b + c);
+```
 
 Lines should be broken into logical groups if it improves readability, such as splitting each expression of a ternary operator onto its own line even if both will fit on a single line.
 
-    var baz = firstCondition(foo) && secondCondition(bar) ?
-        qux(foo, bar) :
-        foo;
+```JavaScript
+var baz = firstCondition(foo) && secondCondition(bar) ?
+    qux(foo, bar) :
+    foo;
+```
 
 When a conditional is too long to fit on one line, successive lines must be indented one extra level to distinguish them from the body.
 
-    if (firstCondition() && secondCondition() &&
-            thirdCondition() ) {
-        doStuff();
-    }
+```JavaScript
+if (firstCondition() && secondCondition() &&
+        thirdCondition() ) {
+    doStuff();
+}
+```
 
 ## Comments
 
@@ -82,7 +87,9 @@ It is important that comments be kept up-to-date. Erroneous comments can make pr
 
 Make comments meaningful. Focus on what is not immediately visible. Don't waste the reader's time with stuff like
 
-    i = 0; // Set i to zero.
+```JavaScript
+i = 0; // Set i to zero.
+```
 
 Generally use line comments. Save block comments for formal documentation.
 
@@ -90,16 +97,17 @@ Comments start with a capital first letter, but don't require a period at the en
 
 Avoid using `/* ... */` multi-line comments because this style cannot be nested within other comments.
 
-Good Examples:
+Good:
+```JavaScript
+var alpha = 'beta'; // Quick comment here.  
 
-    var alpha = 'beta'; // Quick comment here.  
-    
-    // We need an explicit "bar", because later in the code foo is checked.
-    var foo = 'bar';
-     
-    // Even long comments that span
-    // multiple lines use the single
-    // line comment form.
+// We need an explicit "bar", because later in the code foo is checked.
+var foo = 'bar';
+ 
+// Even long comments that span
+// multiple lines use the single
+// line comment form.
+```
 
 ### Comment Tokens - TODO
 
@@ -107,24 +115,29 @@ Avoid using TODO comments. It may not be clear whether the TODO work has been pe
 
 If a TODO really must be used, open a bug or work item with a description of the issue and include the id along with the TODO. If the TODO is part of a work-in-progress, include your alias so it is easy to search the code to find the remaining TODOs to finish.
 
-Bad Example:
+Bad:
+```JavaScript
+// TODO: refactor this code
+```
 
-    // TODO: refactor this code
-    
-Acceptable Examples:
-
-    // TODO: PSP-1234: Some description
-    // TODO: estebans: Another description
+Acceptable:
+```JavaScript
+// TODO: PSP-1234: Some description
+// TODO: 2014-07-03 estebans: Another description
+```
 
 ## Quotes
 Use single quotes `''` for strings.
 
-    var single = 'I am wrapped in single quotes';
+```JavaScript
+var single = 'I am wrapped in single quotes';
+```
 
 Strings that require inner quoting must use single outside and double inside.
-    
-    var html = '<div id="myId"></div>';
 
+```JavaScript    
+var html = '<div id="myId"></div>';
+```
 
 ## Variable Declarations
 
@@ -136,9 +149,11 @@ All variables should be declared before used. JavaScript does not require this, 
 
 It is preferred that each variable be given its own line (and comment if necessary).
 
-    var currentEntry; // currently selected table entry
-    var level;        // indentation level
-    var size;         // size of table
+```JavaScript
+var currentEntry; // currently selected table entry
+var level;        // indentation level
+var size;         // size of table
+```
 
 >Alexd: Review
 >JavaScript does not have block scope, so defining variables in blocks can confuse programmers who are experienced with other C family languages. Define all variables at the top of the function.
@@ -158,20 +173,26 @@ Constructor functions that must be used with the new prefix should start with a 
 
 Examples:
 
-    functionNamesLikeThis, variableNamesLikeThis, ClassNamesLikeThis, 
-    EnumNamesLikeThis, CONSTANT_VALUES_LIKE_THIS
+```JavaScript
+functionNamesLikeThis, variableNamesLikeThis, ClassNamesLikeThis, 
+EnumNamesLikeThis, CONSTANT_VALUES_LIKE_THIS
+```
 
 If the name contains an acronym or abbreviation, the first letter only will be capitalized. 
 
-Bad Examples:
-    
-    elementID
-    userHTML
-    
-Good Examples:
-    
-    elementId
-    userHtml
+Bad:
+
+ ```JavaScript   
+elementID
+userHTML
+```    
+
+Good:
+
+```JavaScript   
+elementId
+userHtml
+```
 
 >Alexd: review:
 >Global variables should be in all caps. (JavaScript does not have macros or constants, so there isn't much point in using all caps to signify features that JavaScript doesn't have.)
@@ -185,35 +206,38 @@ Good Examples:
 ## Properties
 Use dot notation when accessing properties.
 
-    var luke = {
-      jedi: true,
-      age: 28
-    };
+```JavaScript
+var luke = {
+  jedi: true,
+  age: 28
+};
 
-    // bad
-    var isJedi = luke['jedi'];
-    
-    // good
-    var isJedi = luke.jedi;
+// bad
+var isJedi = luke['jedi'];
+
+// good
+var isJedi = luke.jedi;
+```
 
 Use subscript notation `[]` when accessing properties with a variable.
 
-    var luke = {
-      jedi: true,
-      age: 28
-    };
-    
-    function getProp(prop) {
-      return luke[prop];
-    }
-    
-    var isJedi = getProp('jedi');
+```JavaScript
+var luke = {
+  jedi: true,
+  age: 28
+};
 
+function getProp(prop) {
+  return luke[prop];
+}
+
+var isJedi = getProp('jedi');
+```
 
 ## Statements
 
 ### Simple Statements
-Each line should contain at most one statement. Put a ; (semicolon) at the end of every simple statement. Note that an assignment statement that is assigning a function literal or object literal is still an assignment statement and must end with a semicolon.
+Each line should contain at most one statement. Put a `;` (semicolon) at the end of every simple statement. Note that an assignment statement that is assigning a function literal or object literal is still an assignment statement and must end with a semicolon.
 
 
 ### Compound Statements
@@ -225,15 +249,19 @@ Compound statements are statements that contain lists of statements enclosed in 
 - The `}` (right curly brace) should begin a line and be indented to align with the beginning of the line containing the matching { (left curly brace).
 - Braces should be used around **all** statements, even single statements, when they are part of a control structure, such as an if or for statement. This makes it easier to add statements without accidentally introducing bugs.
 
-    Bad Example:
-
-        if (condition) statement;
+    Bad:
     
-    Good Example:
+    ```JavaScript
+    if (condition) statement;
+    ```
 
-        if (condition) {
-            statement;
-        }
+    Good:
+    
+    ```JavaScript
+    if (condition) {
+        statement;
+    }
+    ```
 
 
 ### `return` Statement
@@ -245,63 +273,73 @@ A `return` statement with a value should not use ( ) (parentheses) around the va
 
 The if class of statements should have the following form:
 
-    if (condition) {
-        statements
-    }
-    
-    if (condition) {
-        statements
-    } else {
-        statements
-    }
-    
-    if (condition) {
-        statements
-    } else if (condition) {
-        statements
-    } else {
-        statements
-    }
+```JavaScript
+if (condition) {
+    statements
+}
+
+if (condition) {
+    statements
+} else {
+    statements
+}
+
+if (condition) {
+    statements
+} else if (condition) {
+    statements
+} else {
+    statements
+}
+```
 
 ### `for` Statement
 
 A for class of statements should have the following form:
 
-    for (initialization; condition; update) {
-        statements
-    }
+```JavaScript
+for (initialization; condition; update) {
+    statements
+}
 
-    for (variable in object) {
-        if (filter) {
-            statements
-        } 
-    }
+for (variable in object) {
+    if (filter) {
+        statements
+    } 
+}
+```
 
 The first form should be used with arrays and with loops of a predeterminable number of iterations.
 
 The second form should be used with objects. Be aware that members that are added to the prototype of the object will be included in the enumeration. It is wise to program defensively by using the `hasOwnProperty` method to distinguish the true members of the object:
 
-    for (variable in object) {
-        if (object.hasOwnProperty(variable)) {
-            statements
-        } 
-    }
+```JavaScript
+for (variable in object) {
+    if (object.hasOwnProperty(variable)) {
+        statements
+    } 
+}
+```
 
 ### `while` Statement
 
 A `while` statement should have the following form:
 
-    while (condition) {
-        statements
-    }
+```JavaScript
+while (condition) {
+    statements
+}
+```
 
 ### `do` Statement
 
 A `do` statement should have the following form:
 
-    do {
-        statements
-    } while (condition);
+```JavaScript
+do {
+    statements
+} while (condition);
+```
 
 Unlike the other compound statements, the `do` statement always ends with a `;` (semicolon).
 
@@ -309,12 +347,14 @@ Unlike the other compound statements, the `do` statement always ends with a `;` 
 
 A `switch` statement should have the following form:
 
-    switch (expression) {
-        case expression:
-            statements
-        default:
-            statements
-    }
+```JavaScript
+switch (expression) {
+    case expression:
+        statements
+    default:
+        statements
+}
+```
 
 Each group of statements (except the default) should end with `break`, `return`, or `throw`. Do not fall through.
 
@@ -322,23 +362,26 @@ Each group of statements (except the default) should end with `break`, `return`,
 
 The `try` class of statements should have the following form:
 
-    try {
-        statements
-    } catch (variable) {
-        statements
-    }
+```JavaScript
+try {
+    statements
+} catch (variable) {
+    statements
+}
 
-    try {
-        statements
-    } catch (variable) {
-        statements
-    } finally {
-        statements
-    }
+try {
+    statements
+} catch (variable) {
+    statements
+} finally {
+    statements
+}
+```
 
 ### `continue` Statement
 
 Avoid use of the `continue` statement. It tends to obscure the control flow of the function.
+
 
 ### `with` Statement
 
@@ -351,8 +394,12 @@ Use the `===` and `!==` operators. The `==` and `!=` operators do type coercion 
 
 The *only* exception is when checking for `undefined` and `null` by way of `null`.
 
-    // Check for both undefined and null values, for some important reason.
-    undefOrNull == null;
+```JavaScript
+// Check for both undefined and null values, for some important reason.
+undefOrNull == null;
+```
+> alexd: Link to equality chart?
+
 
 ## Spacing
 
@@ -362,167 +409,189 @@ Blank spaces should be used in the following circumstances:
 
 - A keyword followed by ( (left parenthesis) should be separated by a space.
 
-		while (true) {
-- A blank space should not be used between a function value and its ( (left parenthesis). This helps to distinguish between keywords and function invocations. Good example: `add(1, 2);`
-- All binary operators except . (period) and ( (left parenthesis) and [ (left bracket) should be separated from their operands by a space. Good examples: `a.b`, `a[b]`, `a + b`.
-- No space should separate a unary operator and its operand except when the operator is a word such as typeof. Good examples: `i++`, `!condition`, `typeof someVar`.
+    ```JavaScript
+    while (true) {
+    ```
+- A blank space should not be used between a function value and its ( (left parenthesis). This helps to distinguish between keywords and function invocations. Good: `add(1, 2);`
+- All binary operators except . (period) and ( (left parenthesis) and [ (left bracket) should be separated from their operands by a space. Good: `a.b`, `a[b]`, `a + b`.
+- No space should separate a unary operator and its operand except when the operator is a word such as typeof. Good: `i++`, `!condition`, `typeof someVar`.
 - Each ; (semicolon) in the control part of a for statement should be followed with a space.
 - Whitespace should follow every , (comma).
-- The ? and : in a ternary conditional must have space on both sides. Good example: `a ? b : c`.
-- No filler spaces in empty constructs. Good examples: `{}`, `[]`, `fn()`.
+- The ? and : in a ternary conditional must have space on both sides. Good: `a ? b : c`.
+- No filler spaces in empty constructs. Good: `{}`, `[]`, `fn()`.
 - No leading commas.
  
-    Bad examples:
-    
-        // Bad
-        if(condition) doSomething();
-        while(!condition) iterating++;
-        for(var i=0;i<100;i++) object[array[i]] = someFn(i);
-        var leadingCommaHere = {
-            a: 'b'
-          , c: 'd'
-        };  
-    
-    Good examples:
+    Bad:
+    ```JavaScript
+    if(condition) doSomething();
+    while(!condition) iterating++;
+    for(var i=0;i<100;i++) object[array[i]] = someFn(i);
+    var leadingCommaHere = {
+        a: 'b'
+      , c: 'd'
+    };  
+    ```
+
+    Good:
+    ```JavaScript 
+    if (condition) {
+        doSomething();
+    } else if (otherCondition) {
+        somethingElse();
+    } else {
+        otherThing();
+    }
      
-        // Good:
-        if (condition) {
-            doSomething();
-        } else if (otherCondition) {
-            somethingElse();
-        } else {
-            otherThing();
-        }
-         
-        while (!condition) {
-            iterating++;
-        }
-         
-        for (var i = 0; i < 100; i++) {
-            object[array[i]] = someFn(i);
-        }
+    while (!condition) {
+        iterating++;
+    }
+     
+    for (var i = 0; i < 100; i++) {
+        object[array[i]] = someFn(i);
+    }
 
-        var trailingCommaInstead = {
-            a: 'b',
-            c: 'd'
-        };  
-
+    var trailingCommaInstead = {
+        a: 'b',
+        c: 'd'
+    };  
+    ```
 
 ## Objects
 
 - Use the literal syntax for object creation.
 
-    Bad Example:
+    Bad:
+    ```JavaScript
+    var item = new Object();
+    ```
 
-        var item = new Object();
-    
-    Good Example:
-
-        var item = {};
+    Good:
+    ```JavaScript
+    var item = {};
+    ```
 
 Object declarations can be made on a single line if they are short (remember the line length limits). When an object declaration is too long to fit on one line, there must be one property per line. Property names only need to be quoted if they are reserved words or contain special characters:
 
-- Bad Example:
+- Bad:
 
-        var map = { ready: 9,
+    ```JavaScript
+    var map = { ready: 9,
             when: 4, "you are": 15 };
+    ```
  
-- Good Example:
+- Good:
     
-        var map = { ready: 9, when: 4, "you are": 15 };
-         
-        // Good as well
-        var map = {
-            ready: 9,
-            when: 4,
-            "you are": 15
-        };
+    ```JavaScript
+    var map = { ready: 9, when: 4, "you are": 15 };
+     
+    // Good as well
+    var map = {
+        ready: 9,
+        when: 4,
+        "you are": 15
+    };
+    ```
 
 
 ## Arrays and Function Calls
 
 - Use the literal syntax for array creation.
 
-    Bad Example:
+    Bad:
     
-        var items = new Array();
+    ```JavaScript
+    var items = new Array();
+    ```
+
+    Good:
     
-    Good Example:
-    
-        var items = [];
+    ```JavaScript
+    var items = [];
+    ```
 
 - Never include extra spaces around elements and arguments:
-    
-        array = ['*'];
-    
-        array = [a, b];
-         
-        foo(arg);
-         
-        foo('string', object);
-         
-        foo(options, object[property]);
-         
-        foo(node, 'property', 2);
-    
-        // Function with a callback, object, or array as the sole argument:
-        foo({
-            a: "alpha",
-            b: "beta"
-        });
-         
-        // Function with a callback, object, or array as the first argument:
-        foo(function() {
-            // Do stuff
-        }, options);
-         
-        // Function with a callback, object, or array as the last argument:
-        foo(data, function() {
-            // Do stuff
-        });
+ 
+    ```JavaScript   
+    array = ['*'];
+
+    array = [a, b];
+     
+    foo(arg);
+     
+    foo('string', object);
+     
+    foo(options, object[property]);
+     
+    foo(node, 'property', 2);
+
+    // Function with a callback, object, or array as the sole argument:
+    foo({
+        a: "alpha",
+        b: "beta"
+    });
+     
+    // Function with a callback, object, or array as the first argument:
+    foo(function() {
+        // Do stuff
+    }, options);
+     
+    // Function with a callback, object, or array as the last argument:
+    foo(data, function() {
+        // Do stuff
+    });
+    ```
 
 ## Best Practices and Patterns
-> Alexd: Todo (IIFE, etc)
+> Alexd: Todo (IIFE, etc). Enum -- var Colors = { Red: 0, Green: 1, Blue: 2 };
 
 ## jQuery-Specific
 ### Variables
 Prefix jQuery object variables with a `$`. If the jQuery call returns anything else (such as a string or DOM node) this is not needed. 
 
-Bad Examples:
-    
-    var sidebar = $('.sidebar');            // Returns a jQuery object
-    var $username = $('.username').text();  // Returns a string like "Esteban"
+Bad:
 
-Good Examples:
+```JavaScript    
+var sidebar = $('.sidebar');            // Returns a jQuery object
+var $username = $('.username').text();  // Returns a string like "Esteban"
+```
 
-    var $sidebar = $('.sidebar');
-    var username = $('.username').text();
+Good:
+```JavaScript
+var $sidebar = $('.sidebar');
+var username = $('.username').text();
+```
 
 ### Chained Method Calls
 When a chain of method calls is too long to fit on one line, there must be one call per line, with the first call on a separate line from the object the methods are called on. If the method changes the context, an extra level of indentation must be used.
 
-    elements
-        .addClass('foo')
-        .children()
-            .html('hello')
-        .end()
-        .appendTo('body');
-
+```JavaScript
+elements
+    .addClass('foo')
+    .children()
+        .html('hello')
+    .end()
+    .appendTo('body');
+```
 
 ### Cache jQuery Lookups
 
-Bad example:
+Bad:
 
-    var id = $('.sidebar').attr('id');
-    // ... stuff ...
-    $('.sidebar').hide();
+```JavaScript
+var id = $('.sidebar').attr('id');
+// ... stuff ...
+$('.sidebar').hide();
+```
 
-Good Example:
+Good:
 
-    var $sidebar = $('.sidebar');
-    var id = $sidebar.attr('id'); 
-    // ... stuff ...
-    $sidebar.hide();
+```JavaScript
+var $sidebar = $('.sidebar');
+var id = $sidebar.attr('id'); 
+// ... stuff ...
+$sidebar.hide();
+```
+
 
 ## Parting Words
 Perhaps Google sums it up best:
