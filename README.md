@@ -19,7 +19,7 @@ Neatness counts.
 1. [Quotes](#quotes)
 1. [Variable Declarations](#variable-declarations)
 1. [Naming Conventions](#naming-conventions)
-1. [Functions](#functions)
+1. [Function Declarations](#function-declarations)
 1. [Properties](#properties)
 1. [Statements](#statements)
 1. [Equality](#equality)
@@ -195,10 +195,90 @@ userHtml
 
 
 
-## Functions
+## Function Declarations
 
-> Alexd: To do
+All functions should be declared before they are used. Inner functions should follow the var statement. This helps make it clear what variables are included in its scope.
 
+There should be no space between the name of a function and the `(` (left parenthesis) of its parameter list. There should be one space between the `)` (right parenthesis) and the `{` (left curly brace) that begins the statement body. The body itself is indented four spaces. The `}` (right curly brace) is aligned with the line containing the beginning of the declaration of the function.
+
+```JavaScript
+function outer(c, d) {
+    var e = c * d;
+
+    function inner(a, b) {
+        return (e * a) + b;
+    }
+
+    return inner(0, 1);
+}
+```
+
+This convention works well with JavaScript because in JavaScript, functions and object literals can be placed anywhere that an expression is allowed. It provides the best readability with inline functions and complex structures.
+
+```JavaScript
+function getElementsByClassName(className) {
+    var results = [];
+    walkTheDom(document.body, function (node) {
+        var array;                // array of class names
+        var ncn = node.className; // the node's classname
+
+        // If the node has a class name, then split it into a list of simple names.
+        // If any of them match the requested name, then append the node to the list of results.
+        if (ncn && ncn.split(' ').indexOf(className) >= 0) {
+            results.push(node);
+        }
+    });
+    return results;
+}
+```
+
+If a function literal is anonymous, there should be one space between the word function and the `(` (left parenthesis). If the space is omited, then it can appear that the function's name is function, which is an incorrect reading.
+
+```JavaScript
+    div.onclick = function (e) {
+        e.preventDefault();
+    };
+
+    that = {
+        method: function () {
+            return this.datum;
+        },
+        datum: 0
+    };
+```    
+Use of global functions should be minimized.
+
+When a function is to be invoked immediately, the entire invocation expression should be wrapped in parens so that it is clear that the value being produced is the result of the function and not the function itself.
+
+```JavaScript
+var collection = (function () {
+    var keys = [], values = [];
+
+    return {
+        get: function (key) {
+            var at = keys.indexOf(key);
+            if (at >= 0) {
+                return values[at];
+            }
+        },
+        set: function (key, value) {
+            var at = keys.indexOf(key);
+            if (at < 0) {
+                at = keys.length;
+            }
+            keys[at] = key;
+            values[at] = value;
+        },
+        remove: function (key) {
+            var at = keys.indexOf(key);
+            if (at >= 0) {
+                keys.splice(at, 1);
+                values.splice(at, 1);
+            }
+        }
+    };
+}());
+```
 
 ## Properties
 Use dot notation when accessing properties.
