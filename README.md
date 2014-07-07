@@ -10,7 +10,12 @@ All of our JavaScript code is sent directly to the public. It should always be o
 
 Neatness counts.
 
+## Table of Contents
 
+1. [JavaScript Files](#javascript-files)
+1. [Line Length](#line-length)
+1. [Comments](#comments)
+ 
 ## JavaScript Files
 
 JavaScript programs should be stored in and delivered as .js files. Filenames should be all lowercase `likethisfilename.js`.
