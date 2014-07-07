@@ -27,27 +27,7 @@ The unit of indentation is four spaces. Use of tabs should be avoided because (a
 
 ## Line Length
 
-Avoid lines longer than 80 characters. When a statement will not fit on a single line, it may be necessary to break it. Place the break after an operator, ideally after a comma. A break after an operator decreases the likelihood that a copy-paste error will be masked by semicolon insertion. The next line should be indented 8 spaces.
-
-Bad:
-```JavaScript
-myLongLineOfCode +
-anotherLineOfCode;
-
-mapper(alpha, beta, gamma,
-delta, epsilon);
-```
-
-Good:
-```JavaScript
-myLongLineOfCode +
-        anotherLineOfCode;
-
-mapper(alpha, beta, gamma,
-        delta, epsilon);        
-```
-
-### Multi-line Statements
+Avoid lines longer than 80 characters. When a statement will not fit on a single line, it may be necessary to break it. Place the break after an operator, ideally after a comma. A break after an operator decreases the likelihood that a copy-paste error will be masked by semicolon insertion. The next line should be indented 8 spaces, or alternatively vertically align parameters if that is more readable.
 
 When a statement is too long to fit on one line, line breaks must occur after an operator.
 
@@ -60,26 +40,33 @@ var html = '<p>The sum of ' + a + ' and ' + b + ' plus ' + c
 Good:
 ```JavaScript
 var html = '<p>The sum of ' + a + ' and ' + b + ' plus ' + c +
-    ' is ' + (a + b + c);
+        ' is ' + (a + b + c);
 ```
 
 Lines should be broken into logical groups if it improves readability, such as splitting each expression of a ternary operator onto its own line even if both will fit on a single line.
 
 ```JavaScript
 var baz = firstCondition(foo) && secondCondition(bar) ?
-    qux(foo, bar) :
-    foo;
+        qux(foo, bar) :
+        foo;
+        
+// Also good
+myFunc(alpha, 
+       beta,
+       gamma,
+       delta,
+       epsilon);
 ```
 
 When a conditional is too long to fit on one line, successive lines must be indented one extra level to distinguish them from the body.
 
 ```JavaScript
 if (firstCondition() && secondCondition() &&
-        thirdCondition() ) {
+        thirdCondition()) {
     doStuff();
 }
-```
 
+```
 
 ## Comments
 
@@ -93,15 +80,13 @@ Make comments meaningful. Focus on what is not immediately visible. Don't waste 
 i = 0; // Set i to zero.
 ```
 
-Generally use line comments. Save block comments for formal documentation.
+Generally use line comments `//`. Save block comments for formal documentation.
 
 Comments start with a capital first letter, but don't require a period at the end, unless you're writing full sentences. There must be a single space between the comment token and the comment text.
 
-Avoid using `/* ... */` multi-line comments because this style cannot be nested within other comments.
-
 Good:
 ```JavaScript
-var alpha = 'beta'; // Quick comment here.  
+var alpha = 'beta'; // Quick comment here  
 
 // We need an explicit "bar", because later in the code foo is checked.
 var foo = 'bar';
@@ -124,8 +109,8 @@ Bad:
 
 Acceptable:
 ```JavaScript
-// TODO: PSP-1234: Some description
-// TODO: 2014-07-03 estebans: Another description
+// TODO:PSP-1234: Some description
+// TODO:2014-07-03:estebans: Another description
 ```
 
 
@@ -148,8 +133,6 @@ var html = '<div id="myId"></div>';
 > Alexd: Review. Also see https://speakerdeck.com/rauschma/javascript-coding-tips slide 24
 
 All variables should be declared before used. JavaScript does not require this, but doing so makes the program easier to read and makes it easier to detect undeclared variables that may become implied globals. Implied global variables should never be used. Use of global variables should be minimized.
-
-> Alexd: Review: The var statement should be the first statement in the function body.
 
 It is preferred that each variable be given its own line (and comment if necessary).
 
@@ -213,8 +196,8 @@ Use dot notation when accessing properties.
 
 ```JavaScript
 var luke = {
-  jedi: true,
-  age: 28
+    jedi: true,
+    age: 28
 };
 
 // bad
@@ -228,12 +211,12 @@ Use subscript notation `[]` when accessing properties with a variable.
 
 ```JavaScript
 var luke = {
-  jedi: true,
-  age: 28
+    jedi: true,
+    age: 28
 };
 
 function getProp(prop) {
-  return luke[prop];
+    return luke[prop];
 }
 
 var isJedi = getProp('jedi');
