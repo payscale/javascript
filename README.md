@@ -77,15 +77,6 @@ myFunc(alpha,
        epsilon);
 ```
 
-When a conditional is too long to fit on one line, successive lines must be indented one extra level to distinguish them from the body.
-
-```JavaScript
-if (firstCondition() && secondCondition() &&
-        thirdCondition()) {
-    doStuff();
-}
-```
-
 ## Comments
 
 Be generous with comments. It is useful to leave information that will be read at a later time by people (possibly yourself) who will need to understand what you have done. The comments should be well-written and clear, just like the code they are annotating. An occasional nugget of humor might be appreciated. Frustrations and resentments will not.
