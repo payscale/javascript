@@ -15,6 +15,20 @@ Neatness counts.
 1. [JavaScript Files](#javascript-files)
 1. [Line Length](#line-length)
 1. [Comments](#comments)
+1. [Comment Tokens -- TODO](#comment-tokens---todo)
+1. [Quotes](#quotes)
+1. [Variable Declarations](#variable-declarations)
+1. [Naming Conventions](#naming-conventions)
+1. [Functions](#functions)
+1. [Properties](#properties)
+1. [Statements](#statements)
+1. [Equality](#equality)
+1. [Spacing](#spacing)
+1. [Objects](#objects)
+1. [Arrays and Function Calls](#arrays-and-function-calls)
+1. [Best Practices and Patterns](#best-practices-and-patterns)
+1. [jQuery-Specific](#jquery-specific)
+1. [Parting Words](#parting-words)
  
 ## JavaScript Files
 
@@ -70,7 +84,6 @@ if (firstCondition() && secondCondition() &&
         thirdCondition()) {
     doStuff();
 }
-
 ```
 
 ## Comments
