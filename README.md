@@ -235,16 +235,16 @@ function getElementsByClassName(className) {
 If a function literal is anonymous, there should be one space between the word function and the `(` (left parenthesis). If the space is omited, then it can appear that the function's name is function, which is an incorrect reading.
 
 ```JavaScript
-    div.onclick = function (e) {
-        e.preventDefault();
-    };
+div.onclick = function (e) {
+    e.preventDefault();
+};
 
-    that = {
-        method: function () {
-            return this.datum;
-        },
-        datum: 0
-    };
+that = {
+    method: function () {
+        return this.datum;
+    },
+    datum: 0
+};
 ```    
 Use of global functions should be minimized.
 
@@ -349,7 +349,7 @@ A `return` statement with a value should not use ( ) (parentheses) around the va
 
 ### `if` Statement
 
-The if class of statements should have the following form:
+The `if` class of statements should have the following form:
 
 ```JavaScript
 if (condition) {
@@ -374,7 +374,7 @@ if (condition) {
 
 ### `for` Statement
 
-A for class of statements should have the following form:
+A `for` class of statements should have the following form:
 
 ```JavaScript
 for (initialization; condition; update) {
