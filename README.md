@@ -135,8 +135,6 @@ var html = '<div id="myId"></div>';
 
 ## Variable Declarations
 
-> Alexd: Review. Also see https://speakerdeck.com/rauschma/javascript-coding-tips slide 24
-
 All variables should be declared before used. JavaScript does not require this, but doing so makes the program easier to read and makes it easier to detect undeclared variables that may become implied globals. Implied global variables should never be used. Use of global variables should be minimized.
 
 It is preferred that each variable be given its own line (and comment if necessary).
@@ -145,9 +143,6 @@ var currentEntry; // currently selected table entry
 var level;        // indentation level
 var size;         // size of table
 ```
-
->Alexd: Review
->JavaScript does not have block scope, so defining variables in blocks can confuse programmers who are experienced with other C family languages. Define all variables at the top of the function.
 
 
 ## Naming Conventions
@@ -182,9 +177,7 @@ elementId
 userHtml
 ```
 
->Alexd: review:
->Global variables should be in all caps. (JavaScript does not have macros or constants, so there isn't much point in using all caps to signify features that JavaScript doesn't have.)
-
+Global variables should be in all caps.
 
 
 ## Function Declarations
@@ -617,7 +610,12 @@ Object declarations can be made on a single line if they are short (remember the
     ```
 
 ## Best Practices and Patterns
-> Alexd: Todo (IIFE, etc). Enum -- var Colors = { Red: 0, Green: 1, Blue: 2 };
+### Enums
+A simple approach to simulating an enum is to use an object literal to define a set of named constants. This is done as a convenience but note it does not get type safety or truly constant values.
+```JavaScript
+var Color = { red: 0, green: 1, blue: 2 };
+var selectedColor = Color.red;
+```
 
 
 ## jQuery-Specific
@@ -677,6 +675,7 @@ Perhaps Google sums it up best:
 >The point of having style guidelines is to have a common vocabulary of coding so people can concentrate on what you're saying rather than on how you're saying it. We present global style rules here so people know the vocabulary, but local style is also important. If code you add to a file looks drastically different from the existing code around it, it throws readers out of their rhythm when they go to read it. Avoid this.
 
 ## References
+ - [Code Conventions for the JavaScript Programming Language](http://javascript.crockford.com/code.html)
  - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
  - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
  - [jQuery JavaScript Style Guide](http://contribute.jquery.org/style-guide/js/)
