@@ -117,7 +117,7 @@ Bad:
 Acceptable:
 ```JavaScript
 // TODO:PSP-1234: Some description
-// TODO:2014-07-07:alexd: Another description
+// TODO:alexd:2014-07-25: Another description
 ```
 
 
