@@ -241,7 +241,7 @@ that = {
 ```    
 Use of global functions should be minimized.
 
-When a function is to be invoked immediately, the entire invocation expression should be wrapped in parens so that it is clear that the value being produced is the result of the function and not the function itself. (This technique is sometimes referred to as an [IIFE](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) (immediately invoked function execution).
+When a function is to be invoked immediately, the entire invocation expression should be wrapped in parens so that it is clear that the value being produced is the result of the function and not the function itself. (This technique is sometimes referred to as an [IIFE](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) (immediately invoked function execution)).
 ```JavaScript
 var collection = (function () {
     var keys = [];
