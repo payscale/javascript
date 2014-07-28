@@ -177,8 +177,19 @@ elementId
 userHtml
 ```
 
-Global variables should be in all caps.
+Global variables, if absolutely necessary, should be attached to the `window` object. This clearly indicates what is happening anyway.
 
+Bad:
+```JavaScript
+myGlobalVariable = 1;
+var myOtherGlobalVariable = 2;
+```
+
+Good:
+```JavaScript
+window.myGlobalVariable = 1;
+window.myOtherGlobalVariable = 2;
+```
 
 ## Function Declarations
 
