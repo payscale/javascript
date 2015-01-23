@@ -28,6 +28,7 @@ Neatness counts.
 1. [Arrays and Function Calls](#arrays-and-function-calls)
 1. [Best Practices and Patterns](#best-practices-and-patterns)
 1. [jQuery-Specific](#jquery-specific)
+1. [Knockout-Specific](#knockout-specific)
 1. [Parting Words](#parting-words)
  
 ## JavaScript Files
@@ -673,6 +674,22 @@ var $sidebar = $('.sidebar');
 var id = $sidebar.attr('id'); 
 // ... stuff ...
 $sidebar.hide();
+```
+
+## knockout-Specific
+Use `self` when caching `this`. (See [A popular convention...](http://knockoutjs.com/documentation/computedObservables.html).)
+
+Good:
+```JavaScript
+function AppViewModel() {
+    var self = this;
+ 
+    self.firstName = ko.observable('Bob');
+    self.lastName = ko.observable('Smith');
+    self.fullName = ko.computed(function() {
+        return self.firstName() + " " + self.lastName();
+    });
+}
 ```
 
 
